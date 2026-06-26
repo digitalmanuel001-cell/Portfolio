@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akanni Emmanuel | Portfolio</title>
+    <style>
+        /* --- Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #060b13;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navbar --- */
+        header {
+            border-bottom: 1px solid #14213d;
+            position: sticky;
+            top: 0;
+            background-color: rgba(6, 11, 19, 0.95);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #a0aec0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .btn-contact-nav {
+            background-color: #2563eb;
+            padding: 8px 16px;
+            border-radius: 4px;
+            color: white !important;
+            font-weight: 500;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px 20px;
+        }
+
+        .hero-sub {
+            color: #3b82f6;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: #a0aec0;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            font-size: 1.1rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            border: 1px solid #475569;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- Sections Shared Layout --- */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-label {
+            color: #3b82f6;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .card-panel {
+            background-color: #0b132b;
+            border: 1px solid #1c2541;
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .about-placeholder-box {
+            height: 400px;
+            width: 50%;
+            background-color: #0e1731;
+            border-radius: 6px;
+            border: 1px dashed #1c2541;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+        }
+
+        .about-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .about-subtitle {
+            color: #3b82f6;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #a0aec0;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #111a36;
+            border: 1px solid #1c2541;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        /* --- Services Section --- */
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service-item {
+            background-color: #0b132b;
+            border: 1px solid #1c2541;
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .service-icon {
+            background-color: #111a36;
+            border: 1px solid #1c2541;
+            padding: 12px;
+            border-radius: 6px;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .service-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .service-info p {
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Portfolio Section --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background-color: #0b132b;
+            border: 1px solid #1c2541;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .portfolio-img-placeholder {
+            height: 180px;
+            background-color: #0e1731;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #1c2541;
+        }
+
+        .portfolio-details {
+            padding: 20px;
+        }
+
+        .portfolio-cat {
+            color: #3b82f6;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .portfolio-details h3 {
+            font-size: 1.1rem;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background-color: #0b132b;
+            border: 1px solid #1c2541;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-text {
+            color: #cbd5e1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .client-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 45px;
+            height: 45px;
+            background-color: #1e293b;
+            border-radius: 50%;
+        }
+
+        .client-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .client-info span {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .contact-info-block h3 {
+            font-size: 0.85rem;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-info-block h3:first-child {
+            margin-top: 0;
+        }
+
+        .contact-info-block p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-tag {
+            background-color: #111a36;
+            border: 1px solid #1c2541;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background-color: #0b132b;
+            border: 1px solid #1c2541;
+            border-radius: 6px;
+            padding: 14px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .btn-submit {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid #14213d;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">Akanni Emmanuel</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact" class="btn-contact-nav">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-sub">Frontend Engineer & Creative Designer</div>
+            <h1>Crafting Digital Experiences with Precision</h1>
+            <p>Premium web informatics, brand identity & pixel perfect design built to leave a lasting impression.</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn-primary">View Portfolio</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-label">About</div>
+            <div class="card-panel about-grid">
+                <div class="about-placeholder-box">
+                    <img style="width: 100%; height:100% ; display: block;" src="image/AKANNI EMMANUEL.png"
+                        alt="Akanni Emmanuel">
+                </div>
+                <div class="about-content">
+                    <h2>Akanni Emmanuel</h2>
+                    <div class="about-subtitle">Frontend Engineer / Brand Architect</div>
+                    <p>Dedicated to building resilient digital experiences. I marry a precise comprehension of code
+                        structure with modern visual metrics, delivering high-impact solutions of the highest form.</p>
+                    <div class="skills-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">WordPress</span>
+                        <span class="tag">Brand Design</span>
+                        <span class="tag">Photo Editing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="section-label">Services</div>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">&lt;/&gt;</div>
+                    <div class="service-info">
+                        <h3>Frontend Development</h3>
+                        <p>Responsive, fast system builds optimized with modern CSS, JS, and clean infrastructure.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">&#9670;</div>
+                    <div class="service-info">
+                        <h3>Brand Identity</h3>
+                        <p>Tailor-made structural layout sets engineered to establish industry credentials.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">&#10022;</div>
+                    <div class="service-info">
+                        <h3>Photo Editing</h3>
+                        <p>High-grade assets correction, composition alignment, and layout optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="section-label">Portfolio</div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img-placeholder">[ Project Preview ]</div>
+                    <div class="portfolio-details">
+                        <span class="portfolio-cat">Logistics</span>
+                        <h3>Project Title One</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-placeholder">[ Project Preview ]</div>
+                    <div class="portfolio-details">
+                        <span class="portfolio-cat">Branding</span>
+                        <h3>Project Title Two</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-placeholder">[ Project Preview ]</div>
+                    <div class="portfolio-details">
+                        <span class="portfolio-cat">Web Design</span>
+                        <h3>Project Title Three</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-placeholder">[ Project Preview ]</div>
+                    <div class="portfolio-details">
+                        <span class="portfolio-cat">Frontend Engineering</span>
+                        <h3>Project Title Four</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-placeholder">[ Project Preview ]</div>
+                    <div class="portfolio-details">
+                        <span class="portfolio-cat">Branding</span>
+                        <h3>Project Title Five</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-placeholder">[ Project Preview ]</div>
+                    <div class="portfolio-details">
+                        <span class="portfolio-cat">E-Commerce</span>
+                        <h3>Project Title Six</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="section-label">Testimonials</div>
+            <div class="testimonials-list">
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"Delivered exactly what was promised. The architecture is incredibly
+                        clean and easily maintainable. Highly recommended!"</p>
+                    <div class="client-profile">
+                        <div class="client-avatar"></div>
+                        <div class="client-info">
+                            <h4>James Smith</h4>
+                            <span>CEO, Blue World Tech</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"Outstanding attention to detail. Absolute pleasure working together to
+                        completely transform our platform's layout structure."</p>
+                    <div class="client-profile">
+                        <div class="client-avatar"></div>
+                        <div class="client-info">
+                            <h4>Akpan Ubong</h4>
+                            <span>Director, Elite Photography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-label">Contact</div>
+            <div class="card-panel contact-layout">
+                <div class="contact-info-block">
+                    <h3><a href="mailto:digitalmanuel001@gmail.com">EMAIL</a> </h3>
+                    <p> </p>
+
+                    <h3>Location</h3>
+                    <p>Lagos, Nigeria</p>
+
+                    <h3>Find Me On</h3>
+                    <div class="social-row">
+                        <span class="social-tag"><a href="#">LinkedIn</a></span>
+                        <span class="social-tag"><a href="#">Github</a></span>
+                        <span class="social-tag"><a href="#">X</a></span>
+                        <span class="social-tag"><a href="#">Behance</a></span>
+                    </div>
+                </div>
+                <div>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>My skils</h2>
+            <div>
+                <ul></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div>&copy; 2026 Akanni Emmanuel. All rights reserved.</div>
+            <div>Delivering Engineering</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
